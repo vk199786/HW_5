@@ -9,6 +9,8 @@ directories = {
         '2': ['10006'],
         '3': []
       }
+for keys, values in directories.items():
+    print(keys)
 
 #p – people – команда, которая спросит номер документа и выведет имя человека, которому он принадлежит;
 def get_person_info():
@@ -50,13 +52,11 @@ def add_new_person():
   new_dict["number"] = new_number
   new_dict["name"] = new_name
   documents.append(new_dict)
-  if new_shelf == directories.keys():
-    print("Ошибка")
-  else:
-    new_dict_1 = {}
-    new_dict_1[new_shelf] = new_dict
-    directories.update(new_dict_1)
-
+  print(documents)
+  new_dict1 = {}
+  new_dict1[(new_shelf)] = list(new_number)
+  directories.update(new_dict1)
+  print(directories)
 
 def main():
   print('People - поиск человека по номеру документа.')
@@ -65,15 +65,15 @@ def main():
   print('Add - добавление нового человека в базу данных.')
   user_input = input('Введите необходимую функцию:')
   if user_input == 'People':
-    print(get_person_info())
+    get_person_info()
   elif user_input == 'Shelf':
-    print(number_of_shelf())
+    number_of_shelf()
   elif user_input == 'List':
-    print(print_each_doc())
+    print_each_doc()
   elif user_input == 'Add':
-    print(add_new_person())
-    print(documents)
-    print(directories)
+    add_new_person()
   else:
     print(f'Функции {user_input} нет в программе')
-main()
+while True:
+    main()
+
